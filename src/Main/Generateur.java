@@ -8,13 +8,13 @@ import Fenetre.*;
 
 public class Generateur
 {
-	private HashMap<String, ArrayList<Projet>> hmProjet;
+	private ArrayList<Projet> alProjet;
 	private Fenetre fenetre;
 	
 	public Generateur()
 	{
 		fenetre = new Fenetre();
-		hmProjet = new HashMap<String, ArrayList<Projet>>();
+		alProjet = new ArrayList<Projet>();
 		
 		lireFichier();
 	}

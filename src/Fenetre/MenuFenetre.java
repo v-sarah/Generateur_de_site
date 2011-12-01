@@ -94,5 +94,13 @@ public class MenuFenetre extends JPanel implements ActionListener
 		// TODO Auto-generated method stub
 		System.exit(0);
 	}
+	
+	public void attendre()
+	{
+		try
+		{
+			Thread.sleep(2000);
+		} catch (Exception e){}
+	}
 }
 

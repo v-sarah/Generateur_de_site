@@ -8,6 +8,7 @@ import javax.swing.*;
 public class CreationProjet extends JFrame implements ActionListener
 {	
 	public static String nomProjet;
+	private JTextField txNom;
 	
 	public CreationProjet()
 	{
@@ -18,23 +19,26 @@ public class CreationProjet extends JFrame implements ActionListener
 		JLabel labelDescription = new JLabel("Creer votre projet");
 		add(labelDescription, BorderLayout.NORTH);
 		
-		JLabel label = new JLabel("Nom du projet");
 		JPanel panel = new JPanel();
+		JLabel label = new JLabel("Nom du projet");
 		panel.add(label);
-		JTextField tx = new JTextField(30);
-		tx.addActionListener(this);
+		txNom = new JTextField(30);
 		
-		panel.add(tx);
+		panel.add(txNom);
 		
 		add(panel);
+		JButton button = new JButton("Valider");
+		button.addActionListener(this);
+		add(button, BorderLayout.SOUTH);
 		setVisible(true);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
-		JTextField jtx = (JTextField)e.getSource();
-		nomProjet = jtx.getText();
+		// TODO Auto-generated method stub		
+		nomProjet = txNom.getText();
+		this.dispose();
+		Fenetre.creerNouveauProjet();
 	}
 }

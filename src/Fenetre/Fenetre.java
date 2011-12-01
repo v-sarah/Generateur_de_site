@@ -19,7 +19,7 @@ public class Fenetre extends JFrame
 		menu.addMenuInFrame(this);
 		
 		// permet l'action de la croix rouge
-		addWindowListener(new WindowAdapter() 
+		addWindowListener(new WindowAdapter()
         {
             public void windowClosing(WindowEvent e) 
             {
@@ -28,6 +28,12 @@ public class Fenetre extends JFrame
         });
 
 		setVisible(true);
+	}
+	
+	public static void creerNouveauProjet()
+	{
+		// TODO Auto-generated method stub
+		System.out.println(CreationProjet.nomProjet);
 	}
 	
 	public static void main(String[] argv)

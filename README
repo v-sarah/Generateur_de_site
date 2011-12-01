@@ -3,9 +3,36 @@ Pour vous aidez : http://help.github.com/
 Installation Windows : http://help.github.com/win-set-up-git/
 Installation Linux : http://help.github.com/linux-set-up-git/
 
-Suivez bien ce tuto, mï¿½me pour les clï¿½s, sur windows cd C:\Users\"Nom rï¿½partoire"\.ssh
+Suivez bien ce tuto, meme pour les cles, sur windows cd C:\Users\"Nom repertoire"\.ssh
 
-M'envoyer votre clé publique.
+M'envoyer vos pseudo git
+
+Après mon aprobation :p
+
+Faite : 
+ - pour avoir les fichiers, faites un git clone git@github.com:Theblues/Generateur_de_site.git
+ - installer le Projet sur Eclipse
+ - A chaque modif, lorsque vous avez fini, allez dans un terminal et faite : 
+		"git commit -m 'Message' -a" 	Pour Agathe Message est à remplacer laisser les cotes
+ - Ensuite faites "git push -u origin master" (Cela permet de l'envoyer sur le repo)
+
+
+Si une Erreur comme celle-ci apparait : 
+	"To git@github.com:Theblues/Generateur_de_site.git
+	! [rejected] master -> master (non-fast-forward)
+	error: failed to push some refs to 'git@github.com:Theblues/Generateur_de_site.git'
+	To prevent you from losing history, non-fast-forward updates were rejected
+	Merge the remote changes (e.g. 'git pull') before pushing again. See the
+	'Note about fast-forwards' section of 'git push --help' for details."
+
+Pas de panique, faite "git pull" (cela permet de recevoir les fichiers que les autres ont modif)
+puis "git push -u origin master" SI il n'y a pas de conflit
+
+Pourquoi cette erreur survient : 
+  - Une autre personne a modifier du code, donc au cas ou ce soit le meme fichier, git signal une erreur pour ne pas effacer les modifs de l'autre personne
+
+
+Si vous creez un nouveau fichier/dossier, avant de commit faite git add nom_du_fichier/dossier
 
 
 Pour ouvrir les fichiers avec Eclipse : 

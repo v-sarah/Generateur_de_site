@@ -6,3 +6,10 @@ Installation Linux : http://help.github.com/linux-set-up-git/
 Suivez bien ce tuto, même pour les clés, sur windows cd C:\Users\"Nom répartoire"\.ssh
 
 M'envoyer votre clé publique.
+
+
+Pour ouvrir les fichiers avec Eclipse : 
+- Faites : "Nouveau Projet"
+- Décocher "Use default location" => http://s3.noelshack.com/uploads/images/20176298598357_eclipse_tuto_1.png
+- Mettre le chemin du dossier => http://s3.noelshack.com/uploads/images/4175999098326_eclipse_tuto_2.png
+- Fini

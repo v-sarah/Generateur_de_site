@@ -1,10 +1,7 @@
 package Main;
 
-
 import java.util.*;
-
 import Utilitaire.*;
-
 import Fenetre.*;
 
 public class Generateur

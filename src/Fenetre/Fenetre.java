@@ -2,13 +2,12 @@ package Fenetre;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class Fenetre extends JFrame
 {
-	MenuFenetre menu;
-	ArbreFenetre arbre;
+	FenetreMenu menu;
+	FenetreArbre arbre;
 	
 	public Fenetre()
 	{
@@ -16,10 +15,10 @@ public class Fenetre extends JFrame
 		setSize(1024, 700);
 		//setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
-		menu = new MenuFenetre();
+		menu = new FenetreMenu();
 		menu.addMenuInFrame(this);
 		
-		arbre = new ArbreFenetre();
+		arbre = new FenetreArbre();
 		
 		add(arbre);
 		

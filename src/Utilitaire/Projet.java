@@ -1,6 +1,6 @@
-package Main;
+package Utilitaire;
 import java.io.*;
-import java.util.ArrayList;
+import java.util.*;
 
 
 public class Projet

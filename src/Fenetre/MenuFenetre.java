@@ -5,6 +5,8 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
+import Utilitaire.*;
+
 public class MenuFenetre extends JPanel implements ActionListener
 {
 	private JMenuBar menuBar;

@@ -1,4 +1,4 @@
-package Fenetre;
+package Utilitaire;
 
 import java.awt.BorderLayout;
 import java.awt.event.*;

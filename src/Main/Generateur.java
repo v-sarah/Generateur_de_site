@@ -3,7 +3,8 @@ package Main;
 
 import java.util.*;
 
-import Fenetre.CreationProjet;
+import Utilitaire.*;
+
 import Fenetre.*;
 
 public class Generateur

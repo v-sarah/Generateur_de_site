@@ -8,6 +8,7 @@ import javax.swing.*;
 public class Fenetre extends JFrame
 {
 	MenuFenetre menu;
+	ArbreFenetre arbre;
 	
 	public Fenetre()
 	{
@@ -17,6 +18,11 @@ public class Fenetre extends JFrame
 		
 		menu = new MenuFenetre();
 		menu.addMenuInFrame(this);
+		
+		arbre = new ArbreFenetre();
+		
+		add(arbre);
+		
 		
 		// permet l'action de la croix rouge
 		addWindowListener(new WindowAdapter()
@@ -28,12 +34,6 @@ public class Fenetre extends JFrame
         });
 
 		setVisible(true);
-	}
-	
-	public static void creerNouveauProjet()
-	{
-		// TODO Auto-generated method stub
-		System.out.println(CreationProjet.nomProjet);
 	}
 	
 	public static void main(String[] argv)

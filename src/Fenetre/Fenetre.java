@@ -11,7 +11,7 @@ public class Fenetre extends JFrame
 	
 	public Fenetre()
 	{
-		setTitle("Générateur de site");
+		setTitle("Generateur de site");
 		setSize(1024, 700);
 		//setExtendedState(JFrame.MAXIMIZED_BOTH);
 		

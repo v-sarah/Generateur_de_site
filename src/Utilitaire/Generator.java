@@ -4,23 +4,37 @@ import java.io.*;
 
 public class Generator
 {
+	private File file;
 	private String xmlCode;
 	
 	public Generator()
 	{
-		xmlCode = header();
-		xmlCode += dtd();
-		xmlCode += code();
+		file = new File("site.xml");
+		try
+		{
+			file.createNewFile();
+		} 
+		catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		xmlCode = "";
 	}
 	
-	public String header() 
+	private void header() 
 	{
-		return "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
+		xmlCode += "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>\n";
+		dtd();
+		xmlCode += "<?xml-stylesheet type=\"text/xsl\" href=\"site.xsl\" ?>\n\n" +
+				"<site>\n" +
+				"\t<page ";
 	}
 	
-	public String dtd() 
+	private void dtd() 
 	{
-		return "" +
+		xmlCode +=
 		"<!DOCTYPE site [\n" +
 			"\t<!ELEMENT site (page+)>\n" +
 				"\t\t<!ELEMENT page(contenu) >\n" +
@@ -32,8 +46,54 @@ public class Generator
 						"\t\t\t\t<!ELEMENT paragraphe(#PCDATA) >\n" +
 		"]>\n\n";
 	}
-
-	public String code()
+	
+	public void ajouterTitre(String titre)		{	xmlCode += "titre='" 	+ titre 	+ "' ";		}	
+	public void ajouterAuteur(String auteur)	{	xmlCode += "auteur='" 	+ auteur 	+ "' ";		}
+	public void ajouterDate(String date)		{	xmlCode += "date='" 	+ date 		+ "' ";		}
+	
+	public void finBalisePage()
+	{
+		xmlCode += ">\n" + 
+					"\t\t<contenu>\n";
+	}
+	
+	public void footer()
+	{
+		xmlCode += "\t\t</contenu>\n" +
+				"\t</page>\n" +
+				"</site>";
+	}
+	
+	public void GenererCodeXML(String titre, String auteur, String date)
+	{
+		header();
+		if (titre != null)
+			ajouterTitre(titre);
+		if (auteur != null)
+			ajouterAuteur(auteur);
+		if (date != null)
+			ajouterDate(date);
+		finBalisePage();
+		
+		
+		footer();
+	}
+	
+	public void creerFichier()
+	{		
+		try {
+			BufferedWriter fichier = new BufferedWriter(new FileWriter(file));
+			fichier.write(xmlCode);
+			
+			fichier.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	/*public String code()
 	{
 		return "<?xml-stylesheet type=\"text/xsl\" href=\"site.xsl\" ?>\n\n" +
 		"<site>\n" +
@@ -46,7 +106,7 @@ public class Generator
 				"\t\t</contenu>\n" +
 			"\t</page>\n" +
 		"</site>";
-	}
+	}*/
 	
 	public String toString()
 	{
@@ -54,24 +114,10 @@ public class Generator
 	}
 	
 	public static void main(String [] args)
-	{
-		File file = new File("site.xml");
-		
-		FileWriter fw;
-		FileReader fr;
-		
+	{		
 		Generator g = new Generator();
 		
-		try {
-			fw = new FileWriter(file);
-			
-			fw.write(g.toString());
-			
-			fw.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		System.out.println(g.toString());
+		g.creerFichier();
 	}
 }

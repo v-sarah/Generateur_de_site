@@ -2,21 +2,26 @@ package Fenetre;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
 
 public class Fenetre extends JFrame
 {
-	MenuFenetre menu;
+	FenetreMenu menu;
+	FenetreArbre arbre;
 	
 	public Fenetre()
 	{
-		setTitle("Générateur de site");
+		setTitle("Generateur de site");
 		setSize(1024, 700);
 		//setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
-		menu = new MenuFenetre();
+		menu = new FenetreMenu();
 		menu.addMenuInFrame(this);
+		
+		arbre = new FenetreArbre();
+		
+		add(arbre);
+		
 		
 		// permet l'action de la croix rouge
 		addWindowListener(new WindowAdapter()
@@ -28,12 +33,6 @@ public class Fenetre extends JFrame
         });
 
 		setVisible(true);
-	}
-	
-	public static void creerNouveauProjet()
-	{
-		// TODO Auto-generated method stub
-		System.out.println(CreationProjet.nomProjet);
 	}
 	
 	public static void main(String[] argv)

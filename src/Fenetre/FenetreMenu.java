@@ -2,10 +2,12 @@ package Fenetre;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 import javax.swing.*;
 
-public class MenuFenetre extends JPanel implements ActionListener
+
+public class FenetreMenu extends JPanel implements ActionListener
 {
 	private JMenuBar menuBar;
 	
@@ -23,7 +25,7 @@ public class MenuFenetre extends JPanel implements ActionListener
 	private JMenuItem itemUndo;
 	private JMenuItem itemRedo;
 	
-	public MenuFenetre()
+	public FenetreMenu()
 	{
 		// initialisation de la bar de Menu
 		menuBar = new JMenuBar();
@@ -79,6 +81,13 @@ public class MenuFenetre extends JPanel implements ActionListener
 		JMenuItem mi = (JMenuItem) e.getSource();
 		if (mi.getLabel().equals("Nouveau Projet"))
 			newProject();
+		if (mi.getLabel().equals("Ouvrir un Projet"))
+		{
+			JFileChooser chooser = new JFileChooser();
+			chooser.setCurrentDirectory(new File("/"));
+			chooser.changeToParentDirectory();
+			chooser.showOpenDialog(null);
+		}
 		if (mi.getLabel().equals("Quitter"))
 			closeFrame();
 	}
@@ -86,7 +95,7 @@ public class MenuFenetre extends JPanel implements ActionListener
 	private void newProject()
 	{
 		// TODO Auto-generated method stub
-		new CreationProjet();
+		new FenetreCreationProjet();
 	}
 
 	private void closeFrame()

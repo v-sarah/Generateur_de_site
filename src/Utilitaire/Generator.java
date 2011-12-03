@@ -1,3 +1,5 @@
+package Utilitaire;
+
 import java.io.*;
 
 public class Generator

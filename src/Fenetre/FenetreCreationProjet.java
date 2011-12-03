@@ -1,16 +1,15 @@
 package Fenetre;
 
-import java.awt.BorderLayout;
+import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
+import Main.*;
 
-public class CreationProjet extends JFrame implements ActionListener
+public class FenetreCreationProjet extends JFrame implements ActionListener
 {	
-	public static String nomProjet;
 	private JTextField txNom;
 	
-	public CreationProjet()
+	public FenetreCreationProjet()
 	{
 		setTitle("Nouveau Projet");
 		setLocation(100, 100);
@@ -37,8 +36,7 @@ public class CreationProjet extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		// TODO Auto-generated method stub		
-		nomProjet = txNom.getText();
 		this.dispose();
-		Fenetre.creerNouveauProjet();
+		Generateur.CreerUnProjet(txNom.getText());
 	}
 }

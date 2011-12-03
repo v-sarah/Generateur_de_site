@@ -6,8 +6,8 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame
 {
-	FenetreMenu menu;
-	FenetreArbre arbre;
+	private FenetreMenu menu;
+	private FenetreArbre arbre;
 	
 	public Fenetre()
 	{
@@ -35,8 +35,10 @@ public class Fenetre extends JFrame
 		setVisible(true);
 	}
 	
-	public static void main(String[] argv)
+	public void modifierArbre()
 	{
-		new Fenetre();
+		// TODO Auto-generated method stub
+		arbre = new FenetreArbre();
+		repaint();
 	}
 }

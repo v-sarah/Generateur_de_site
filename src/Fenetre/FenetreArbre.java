@@ -13,6 +13,7 @@ import Utilitaire.*;
 public class FenetreArbre extends JPanel implements TreeSelectionListener
 {
 	private JTree arbre;
+	private DefaultMutableTreeNode root = new DefaultMutableTreeNode("root");
 	private DefaultMutableTreeNode top;
 	private DefaultMutableTreeNode fichier;
 	
@@ -24,16 +25,19 @@ public class FenetreArbre extends JPanel implements TreeSelectionListener
 			{
 				System.out.println(p.getTitre());
 				top = new DefaultMutableTreeNode(p.getTitre());
+				root.add(top);
 				for (File f : p.getAlF())
 				{
 					fichier = new DefaultMutableTreeNode(f.getName());
 					top.add(fichier);
 				}
+				root.add(top);
 			}
 		}
 		
-		arbre = new JTree(top);
-		arbre.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		arbre = new JTree(root);
+		
+		//arbre.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		arbre.addTreeSelectionListener(this);
 		
 		add(arbre);
@@ -43,12 +47,6 @@ public class FenetreArbre extends JPanel implements TreeSelectionListener
 	public void valueChanged(TreeSelectionEvent e)
 	{
 		// TODO Auto-generated method stub
-		
-	}
-
-	public static void modifierArbre()
-	{
-		// TODO Auto-generated method stub
-		new FenetreArbre();
+		System.out.println("salut");
 	}
 }

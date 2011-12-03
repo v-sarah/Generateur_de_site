@@ -9,7 +9,7 @@ import Fenetre.*;
 public class Generateur
 {
 	public static ArrayList<Projet> alProjet;
-	private Fenetre fenetre;
+	private static Fenetre fenetre;
 	
 	public Generateur()
 	{
@@ -66,7 +66,7 @@ public class Generateur
 	{
 		Projet p = new Projet(titre);
 		alProjet.add(p);
-		FenetreArbre.modifierArbre();
+		fenetre.modifierArbre();
 	}
 	
 	public static void main(String[] argv)

@@ -8,6 +8,7 @@ public class Fenetre extends JFrame
 {
 	private FenetreMenu menu;
 	private FenetreArbre arbre;
+	private static FenetrePage fp;
 	
 	public Fenetre()
 	{
@@ -18,9 +19,9 @@ public class Fenetre extends JFrame
 		menu = new FenetreMenu();
 		menu.addMenuInFrame(this);
 		
-		arbre = new FenetreArbre();
+		//arbre = new FenetreArbre();
 		
-		add(arbre);
+		//add(arbre);
 		
 		
 		// permet l'action de la croix rouge
@@ -34,11 +35,22 @@ public class Fenetre extends JFrame
 
 		setVisible(true);
 	}
+
+	public void ajouterPage()
+	{
+		// TODO Auto-generated method stub
+		FenetrePage fp = new FenetrePage();
+		add(fp);
+		repaint();
+		setVisible(true);
+	}
 	
 	public void modifierArbre()
 	{
+		remove(arbre);
 		// TODO Auto-generated method stub
 		arbre = new FenetreArbre();
+		add(arbre);
 		repaint();
 	}
 }

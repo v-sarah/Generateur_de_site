@@ -10,6 +10,7 @@ public class Generateur
 {
 	public static ArrayList<Projet> alProjet;
 	private static Fenetre fenetre;
+	private static Generator generator;
 	
 	public Generateur()
 	{
@@ -17,6 +18,7 @@ public class Generateur
 		
 		lireFichier();
 		fenetre = new Fenetre();
+		generator = new Generator();
 	}
 	
 	private void lireFichier() 
@@ -66,7 +68,19 @@ public class Generateur
 	{
 		Projet p = new Projet(titre);
 		alProjet.add(p);
-		fenetre.modifierArbre();
+		//fenetre.modifierArbre();
+	}
+	
+	public static void ajouterPage()
+	{
+		// TODO Auto-generated method stub
+		fenetre.ajouterPage();
+	}
+	
+	public static void CreerPage(String titre, String auteur, String[] SousTitre, String[] paragraphe)
+	{
+		generator.GenererCodeXML(titre, auteur);
+		generator.creerFichier();
 	}
 	
 	public static void main(String[] argv)

@@ -1,6 +1,8 @@
 package Utilitaire;
 
 import java.io.*;
+import java.text.*;
+import java.util.*;
 
 public class Generator
 {
@@ -37,19 +39,19 @@ public class Generator
 		xmlCode +=
 		"<!DOCTYPE site [\n" +
 			"\t<!ELEMENT site (page+)>\n" +
-				"\t\t<!ELEMENT page(contenu) >\n" +
+				"\t\t<!ELEMENT page (contenu) >\n" +
 					"\t\t\t<!ATTLIST page titre CDATA #REQUIRED " +
 								 "auteur CDATA #IMPLIED " + 
 								 "date CDATA #IMPLIED >\n" +
 					"\t\t\t<!ELEMENT contenu (sous-titre+, paragraphe+)>\n " +
 						"\t\t\t\t<!ELEMENT sous-titre (#PCDATA) >\n" +
-						"\t\t\t\t<!ELEMENT paragraphe(#PCDATA) >\n" +
+						"\t\t\t\t<!ELEMENT paragraphe (#PCDATA) >\n" +
 		"]>\n\n";
 	}
 	
-	public void ajouterTitre(String titre)		{	xmlCode += "titre='" 	+ titre 	+ "' ";		}	
-	public void ajouterAuteur(String auteur)	{	xmlCode += "auteur='" 	+ auteur 	+ "' ";		}
-	public void ajouterDate(String date)		{	xmlCode += "date='" 	+ date 		+ "' ";		}
+	private void ajouterTitre(String titre)		{	xmlCode += "titre='" 	+ titre 	+ "' ";		}	
+	private void ajouterAuteur(String auteur)	{	xmlCode += "auteur='" 	+ auteur 	+ "' ";		}
+	private void ajouterDate(String date)		{	xmlCode += "date='" 	+ date 		+ "' ";		}
 	
 	public void finBalisePage()
 	{
@@ -64,17 +66,21 @@ public class Generator
 				"</site>";
 	}
 	
-	public void GenererCodeXML(String titre, String auteur, String date)
+	public void GenererCodeXML(String titre, String auteur)
 	{
 		header();
 		if (titre != null)
 			ajouterTitre(titre);
 		if (auteur != null)
 			ajouterAuteur(auteur);
-		if (date != null)
-			ajouterDate(date);
-		finBalisePage();
 		
+		String format = "dd/MM/yy";
+
+		SimpleDateFormat formater = new SimpleDateFormat( format );
+		Date date = new Date();
+		
+		ajouterDate(formater.format(date));
+		finBalisePage();
 		
 		footer();
 	}

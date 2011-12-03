@@ -2,6 +2,8 @@ package Fenetre;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+
 import javax.swing.*;
 
 
@@ -79,6 +81,13 @@ public class FenetreMenu extends JPanel implements ActionListener
 		JMenuItem mi = (JMenuItem) e.getSource();
 		if (mi.getLabel().equals("Nouveau Projet"))
 			newProject();
+		if (mi.getLabel().equals("Ouvrir un Projet"))
+		{
+			JFileChooser chooser = new JFileChooser();
+			chooser.setCurrentDirectory(new File("/"));
+			chooser.changeToParentDirectory();
+			chooser.showOpenDialog(null);
+		}
 		if (mi.getLabel().equals("Quitter"))
 			closeFrame();
 	}

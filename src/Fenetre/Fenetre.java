@@ -8,7 +8,7 @@ public class Fenetre extends JFrame
 {
 	private FenetreMenu menu;
 	private FenetreArbre arbre;
-	private static FenetrePage fp;
+	private FenetrePage fp;
 	
 	public Fenetre()
 	{
@@ -39,7 +39,7 @@ public class Fenetre extends JFrame
 	public void ajouterPage()
 	{
 		// TODO Auto-generated method stub
-		FenetrePage fp = new FenetrePage();
+		fp = new FenetrePage();
 		add(fp);
 		repaint();
 		setVisible(true);

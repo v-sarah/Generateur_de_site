@@ -71,12 +71,6 @@ public class Generateur
 		//fenetre.modifierArbre();
 	}
 	
-	public static void ajouterPage()
-	{
-		// TODO Auto-generated method stub
-		fenetre.ajouterPage();
-	}
-	
 	public static void CreerPage(String titre, String auteur, String[] SousTitre, String[] paragraphe)
 	{
 		generator.GenererCodeXML(titre, auteur);

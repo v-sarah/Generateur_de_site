@@ -9,7 +9,7 @@ import javax.swing.*;
 import Main.Generateur;
 
 
-public class FenetreMenu extends JPanel implements ActionListener
+public class PanelMenu extends JPanel implements ActionListener
 {
 	private JMenuBar menuBar;
 	
@@ -18,7 +18,6 @@ public class FenetreMenu extends JPanel implements ActionListener
 	
 	// item pour le menu Fichiers
 	private JMenuItem itemNew;
-	private JMenuItem itemNewPage;
 	private JMenuItem itemOpen;
 	private JMenuItem itemSaveAs;
 	private JMenuItem itemSave;
@@ -28,7 +27,7 @@ public class FenetreMenu extends JPanel implements ActionListener
 	private JMenuItem itemUndo;
 	private JMenuItem itemRedo;
 	
-	public FenetreMenu()
+	public PanelMenu()
 	{
 		// initialisation de la bar de Menu
 		menuBar = new JMenuBar();
@@ -39,8 +38,6 @@ public class FenetreMenu extends JPanel implements ActionListener
 		// initialisation des items pour le menu Fichier
 		itemNew = new JMenuItem("Nouveau Projet");
 		itemNew.addActionListener(this);
-		itemNewPage = new JMenuItem("Nouvelle Page");
-		itemNewPage.addActionListener(this);
 		itemOpen = new JMenuItem("Ouvrir un Projet");
 		itemOpen.addActionListener(this);
 		itemSaveAs = new JMenuItem("Enregistrer Sous");
@@ -53,12 +50,11 @@ public class FenetreMenu extends JPanel implements ActionListener
 		// initialisation des items pour le menu Edition
 		itemUndo = new JMenuItem("Annuler");
 		itemUndo.addActionListener(this);
-		itemRedo = new JMenuItem("Rétablir");
+		itemRedo = new JMenuItem("Retablir");
 		itemRedo.addActionListener(this);
 		
 		// ajout des items dans le menu Fichier
 		menuFile.add(itemNew);
-		menuFile.add(itemNewPage);
 		menuFile.add(itemOpen);
 		menuFile.addSeparator();
 		menuFile.add(itemSaveAs);
@@ -88,18 +84,10 @@ public class FenetreMenu extends JPanel implements ActionListener
 		String label = mi.getLabel();
 		if (label.equals("Nouveau Projet"))
 			newProject();
-		if (label.equals("Nouvelle Page"))
-			newPage();
 		if (label.equals("Ouvrir un Projet"))
 			openProject();
 		if (label.equals("Quitter"))
 			closeFrame();
-	}
-
-	private void newPage()
-	{
-		// TODO Auto-generated method stub
-		Generateur.ajouterPage();
 	}
 
 	private void newProject()

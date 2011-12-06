@@ -86,7 +86,7 @@ public class Generator
 	}
 	
 	public void creerFichier()
-	{		
+	{
 		try {
 			BufferedWriter fichier = new BufferedWriter(new FileWriter(file));
 			fichier.write(xmlCode);

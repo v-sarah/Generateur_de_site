@@ -6,9 +6,10 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame
 {
-	private FenetreMenu menu;
-	private FenetreArbre arbre;
-	private static FenetrePage fp;
+	private PanelMenu 		menu;
+	private PanelArbre			arborescence;
+	private PanelListeAction	listeAction;
+	private PanelEditeur		editeur;
 	
 	public Fenetre()
 	{
@@ -16,13 +17,21 @@ public class Fenetre extends JFrame
 		setSize(1024, 700);
 		//setExtendedState(JFrame.MAXIMIZED_BOTH);
 		
-		menu = new FenetreMenu();
+		menu = new PanelMenu();
 		menu.addMenuInFrame(this);
 		
-		//arbre = new FenetreArbre();
+		arborescence = new PanelArbre();
+		add(arborescence, BorderLayout.WEST);
 		
-		//add(arbre);
+		JPanel panelCentre = new JPanel();
 		
+		listeAction = new PanelListeAction();
+		panelCentre.add(listeAction, BorderLayout.NORTH);
+		
+		editeur = new PanelEditeur();
+		panelCentre.add(editeur, BorderLayout.CENTER);
+		
+		add(panelCentre);
 		
 		// permet l'action de la croix rouge
 		addWindowListener(new WindowAdapter()
@@ -34,23 +43,5 @@ public class Fenetre extends JFrame
         });
 
 		setVisible(true);
-	}
-
-	public void ajouterPage()
-	{
-		// TODO Auto-generated method stub
-		FenetrePage fp = new FenetrePage();
-		add(fp);
-		repaint();
-		setVisible(true);
-	}
-	
-	public void modifierArbre()
-	{
-		remove(arbre);
-		// TODO Auto-generated method stub
-		arbre = new FenetreArbre();
-		add(arbre);
-		repaint();
 	}
 }

@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame
 {
-	private PanelMenu 		menu;
+	private PanelMenu 			menu;
 	private PanelArbre			arborescence;
 	private PanelListeAction	listeAction;
 	private PanelEditeur		editeur;

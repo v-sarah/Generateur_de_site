@@ -22,13 +22,10 @@ public class PanelEditeur extends JPanel
 		editeurScroll.setBorder(
 	            BorderFactory.createCompoundBorder(
 	                BorderFactory.createCompoundBorder(
-	                                BorderFactory.createTitledBorder("Votre texte"),
+	                                BorderFactory.createTitledBorder("Votre site"),
 	                                BorderFactory.createEmptyBorder(5,5,5,5)),
 	                                editeurScroll.getBorder()));
         
 		add(editeurScroll);
 	}
-	
-
-	
 }

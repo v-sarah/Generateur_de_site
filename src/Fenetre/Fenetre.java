@@ -23,15 +23,14 @@ public class Fenetre extends JFrame
 		arborescence = new PanelArbre();
 		add(arborescence, BorderLayout.WEST);
 		
-		JPanel panelCentre = new JPanel();
-		
 		listeAction = new PanelListeAction();
-		panelCentre.add(listeAction, BorderLayout.NORTH);
 		
 		editeur = new PanelEditeur();
-		panelCentre.add(editeur, BorderLayout.CENTER);
 		
-		add(panelCentre);
+		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, listeAction, editeur);
+        splitPane.setOneTouchExpandable(true);
+		
+		add(splitPane);
 		
 		// permet l'action de la croix rouge
 		addWindowListener(new WindowAdapter()

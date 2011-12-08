@@ -19,10 +19,14 @@ public class PanelEditeur extends JPanel
 		editeurScroll.setVerticalScrollBarPolicy(
                 JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		editeurScroll.setPreferredSize(new Dimension(250, 145));
-		
+		editeurScroll.setBorder(
+	            BorderFactory.createCompoundBorder(
+	                BorderFactory.createCompoundBorder(
+	                                BorderFactory.createTitledBorder("Votre texte"),
+	                                BorderFactory.createEmptyBorder(5,5,5,5)),
+	                                editeurScroll.getBorder()));
         
-		add(editeurPanel);
-		add(editeurScroll, BorderLayout.EAST);
+		add(editeurScroll);
 	}
 	
 

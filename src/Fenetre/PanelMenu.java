@@ -81,12 +81,11 @@ public class PanelMenu extends JPanel implements ActionListener
 	{
 		// TODO Auto-generated method stub
 		JMenuItem mi = (JMenuItem) e.getSource();
-		String label = mi.getLabel();
-		if (label.equals("Nouveau Projet"))
+		if (mi.equals(itemNew))
 			newProject();
-		if (label.equals("Ouvrir un Projet"))
+		if (mi.equals(itemOpen))
 			openProject();
-		if (label.equals("Quitter"))
+		if (mi.equals(itemClose))
 			closeFrame();
 	}
 

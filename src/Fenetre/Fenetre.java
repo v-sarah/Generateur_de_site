@@ -10,6 +10,8 @@ public class Fenetre extends JFrame
 	private PanelArbre			arborescence;
 	private PanelListeAction	listeAction;
 	private PanelEditeur		editeur;
+	private JSplitPane 			splitPaneVertical;
+	private JSplitPane 			splitPaneTotal;
 	
 	public Fenetre()
 	{
@@ -23,15 +25,17 @@ public class Fenetre extends JFrame
 		arborescence = new PanelArbre();
 		add(arborescence, BorderLayout.WEST);
 		
-		JPanel panelCentre = new JPanel();
-		
 		listeAction = new PanelListeAction();
-		panelCentre.add(listeAction, BorderLayout.NORTH);
 		
 		editeur = new PanelEditeur();
-		panelCentre.add(editeur, BorderLayout.CENTER);
 		
-		add(panelCentre);
+		splitPaneVertical = new JSplitPane(JSplitPane.VERTICAL_SPLIT, listeAction, editeur);
+		splitPaneVertical.setOneTouchExpandable(true);
+        
+		splitPaneTotal = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, arborescence, splitPaneVertical);
+		splitPaneTotal.setOneTouchExpandable(true);
+		
+		add(splitPaneTotal);
 		
 		// permet l'action de la croix rouge
 		addWindowListener(new WindowAdapter()

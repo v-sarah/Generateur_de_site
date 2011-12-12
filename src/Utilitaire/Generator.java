@@ -49,7 +49,7 @@ public class Generator
 		"]>\n\n";
 	}
 	
-	private void ajouterTitre(String titre)		{	xmlCode += "titre='" 	+ titre 	+ "' ";		}	
+	private void ajouterTitre(String titre)		{	xmlCode += "titre='" 	+ titre 	+ "' ";		}
 	private void ajouterAuteur(String auteur)	{	xmlCode += "auteur='" 	+ auteur 	+ "' ";		}
 	private void ajouterDate(String date)		{	xmlCode += "date='" 	+ date 		+ "' ";		}
 	
